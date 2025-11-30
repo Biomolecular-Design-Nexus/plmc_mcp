@@ -22,14 +22,25 @@ pip install fastmcp pydantic
 
 ## Local usage
 ```shell
+PLMC_DIR=./repo
+DATASET=notebooks/example
+
 # reformat a3m to a2m (a3m is the mmseqs2 output format)
-reformat.pl a3m a2m  example/DHFR.a3m example/DHFR.a2m
+reformat.pl a3m a2m  $DATASET/DHFR.a3m $DATASET/DHFR.a2m
+python notebooks/rm_a2m_query_gaps.py $DATASET/DHFR.a2m $DATASET/alignment.a2m
+
+$PLMC_DIR/plmc/bin/plmc \
+    -o $DATASET/plmc/uniref100.model_params \
+    -c $DATASET/plmc/uniref100.EC \
+    -f $PROTEIN \
+    -le 16.2 -lh 0.01 -m 200 -t 0.2 \
+    -g $DATASET/alignment.a2m
 
 ```
 
 ## MCP usage
 ```markdown
-- a2m path: /home/xux/Desktop/ProteinMCP/ProteinMCP/mcp-servers/plmc_mcp/notebooks/example/DHFR.a2m
-- focus_seq_id: query
-- output_dir:/home/xux/Desktop/ProteinMCP/ProteinMCP/mcp-servers/plmc_mcp/notebooks/example/plmc
+I have created a a3m file for subtilisin BPN' in file @examples/case2.1_subtilisin/subtilisin.a3m. Can you help build a ev model using plmc mcp and create it to @examples/case2.1_subtilisin/plmc directory. The wild-type sequence is @examples/case2.1_subtilisin/wt.fasta.
+
+Please convert the relative path to absolution path before calling the MCP servers.
 ```
