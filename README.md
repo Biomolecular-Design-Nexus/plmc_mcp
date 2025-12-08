@@ -39,6 +39,13 @@ $PLMC_DIR/plmc/bin/plmc \
 ```
 
 ## MCP usage
+### Install mcp
+```shell
+# Install `plmc` mcp
+fastmcp install claude-code tool-mcps/plmc_mcp/src/plmc_mcp.py --python tool-mcps/plmc_mcp/env/bin/python
+```
+## Call MCP
+
 ```markdown
 I have created a a3m file for subtilisin BPN' in file @examples/case2.1_subtilisin/subtilisin.a3m. Can you help build a ev model using plmc mcp and create it to @examples/case2.1_subtilisin/plmc directory. The wild-type sequence is @examples/case2.1_subtilisin/wt.fasta.
 
