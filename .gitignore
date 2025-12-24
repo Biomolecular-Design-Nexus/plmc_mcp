@@ -16,5 +16,5 @@ repo/
 reports/
 templates/
 tests/
-tools/
 .gemini/
+examples/
