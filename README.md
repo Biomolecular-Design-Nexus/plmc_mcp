@@ -1,6 +1,20 @@
 # MCP service to run [`PLMC`](https://github.com/debbiemarkslab/plmc)
 
-## Create environment
+## Installation
+
+### Quick Setup (Recommended)
+
+Run the automated setup script:
+
+```bash
+cd plmc_mcp
+bash quick_setup.sh
+```
+
+The script will create the conda environment, clone the PLMC repository, build the binaries, install all dependencies, and display the Claude Code configuration. See `quick_setup.sh --help` for options like `--skip-env` or `--skip-repo`.
+
+### Manual Installation (Alternative)
+
 ```bash
 # Create environment
 mamba env create -p ./env python=3.10 pip
@@ -11,7 +25,7 @@ pip install https://github.com/debbiemarkslab/EVcouplings/archive/develop.zip
 
 # Install plmc
 git clone https://github.com/debbiemarkslab/plmc.git
-cd plmc 
+cd plmc
 
 # or cd repo/plmc
 make all-openmp
@@ -42,7 +56,7 @@ $PLMC_DIR/plmc/bin/plmc \
 ### Install mcp
 ```shell
 # Install `plmc` mcp
-fastmcp install claude-code tool-mcps/plmc_mcp/src/plmc_mcp.py --python tool-mcps/plmc_mcp/env/bin/python
+fastmcp install claude-code tool-mcps/plmc_mcp/src/server.py --python tool-mcps/plmc_mcp/env/bin/python
 ```
 ## Call MCP
 
